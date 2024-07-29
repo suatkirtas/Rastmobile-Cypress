@@ -1,0 +1,111 @@
+name: example-basic
+# This workflow represents a set of basic End-to-End tests
+on:
+  push:
+    branches:
+      - 'master'
+  pull_request:
+  workflow_dispatch:
+
+jobs:
+
+  basic-ubuntu-20:
+    runs-on: ubuntu-20.04
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Cypress tests
+        # normally you would write
+        # uses: cypress-io/github-action@v6
+        uses: ./
+        # the parameters below are only necessary
+        # because we are running these examples in a monorepo
+        with:
+          working-directory: examples/basic
+          # just for full picture after installing Cypress
+          # print information about detected browsers, etc
+          # see https://on.cypress.io/command-line#cypress-info
+          build: npx cypress info
+
+  basic-ubuntu-22:
+    runs-on: ubuntu-22.04
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Cypress tests
+        uses: ./
+        with:
+          working-directory: examples/basic
+          build: npx cypress info
+
+  basic-on-windows:
+    runs-on: windows-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Cypress tests
+        uses: ./
+        with:
+          working-directory: examples/basic
+          build: npx cypress info
+
+  basic-on-mac:
+    runs-on: macos-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Cypress tests
+        uses: ./
+        with:
+          working-directory: examples/basic
+          build: npx cypress info
+
+  # skips the binary installation
+  # shows that the job should not fail
+  # https://github.com/cypress-io/github-action/issues/327
+  basic-without-binary-install:
+    runs-on: ubuntu-22.04
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Cypress tests
+        uses: ./
+        with:
+          working-directory: examples/basic
+          # since we do not install Cypress
+          # we should not attempt to run tests
+          runTests: false
+        env:
+          # skip the binary install
+          CYPRESS_INSTALL_BINARY: 0
+          
+
+          name: Artifacts
+on: push
+jobs:
+  cypress-run:
+    runs-on: ubuntu-22.04
+    name: Artifacts
+    steps:
+      - uses: actions/checkout@v4
+      - uses: cypress-io/github-action@v6
+      # after the test run completes store videos and any screenshots
+      - uses: actions/upload-artifact@v4
+        # add the line below to store screenshots only on failures
+        # if: failure()
+        with:
+          name: cypress-screenshots
+          path: cypress/screenshots
+          if-no-files-found: ignore # 'warn' or 'error' are also available, defaults to `warn`
+      - uses: actions/upload-artifact@v4
+        with:
+          name: cypress-videos
+          path: cypress/videos
+          if-no-files-found: ignore # 'warn' or 'error' are also available, defaults to `warn`
+
+
