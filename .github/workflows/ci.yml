@@ -21,12 +21,12 @@ jobs:
 
       - name: Install dependencies
         run: npm ci
-        working-directory: e2e
+        working-directory: cypress/e2e
 
       - name: Run Cypress tests
         uses: cypress-io/github-action@v6
         with:
-          working-directory: e2e
+          working-directory: cypress/e2e
 
   e2e-tests-ubuntu-22:
     runs-on: ubuntu-22.04
@@ -41,12 +41,12 @@ jobs:
 
       - name: Install dependencies
         run: npm ci
-        working-directory: e2e
+        working-directory: cypress/e2e
 
       - name: Run Cypress tests
         uses: cypress-io/github-action@v6
         with:
-          working-directory: e2e
+          working-directory: cypress/e2e
 
   e2e-tests-windows:
     runs-on: windows-latest
@@ -61,12 +61,12 @@ jobs:
 
       - name: Install dependencies
         run: npm ci
-        working-directory: e2e
+        working-directory: cypress/e2e
 
       - name: Run Cypress tests
         uses: cypress-io/github-action@v6
         with:
-          working-directory: e2e
+          working-directory: cypress/e2e
 
   e2e-tests-macos:
     runs-on: macos-latest
@@ -81,9 +81,9 @@ jobs:
 
       - name: Install dependencies
         run: npm ci
-        working-directory: e2e
+        working-directory: cypress/e2e
 
       - name: Run Cypress tests
         uses: cypress-io/github-action@v6
         with:
-          working-directory: e2e
+          working-directory: cypress/e2e
