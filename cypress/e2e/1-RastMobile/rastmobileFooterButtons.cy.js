@@ -5,7 +5,7 @@ describe('rastmobile alt menu butonları ve dogrulama', () => {
     beforeEach('', () => {
         cy.log("beforeEach ile visit atıldı, çözünürlük ayarlandı")
         cy.viewport(1200,1000)
-        cy.visit("/") //configte baseUrl ekledik onun üzerinden "/" ile gidebiliyoruz, configte yoksa http://rastmobile.com yazılır
+        cy.visit("http://rastmobile.com") //configte baseUrl ekledik onun üzerinden "/" ile gidebiliyoruz, configte yoksa http://rastmobile.com yazılır
         cy.scrollTo("bottom") // alt menü çalışacağımızdan aşağı kaydırdık
         cy.location("hostname").should("include","rastmobile.com")
         cy.location("protocol").should("eq","https:")
