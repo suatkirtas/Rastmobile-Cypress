@@ -1,5 +1,5 @@
-name: example-basic
-# This workflow represents a set of basic End-to-End tests
+name: E2E Tests
+# This workflow runs end-to-end tests using Cypress
 on:
   push:
     branches:
@@ -8,8 +8,7 @@ on:
   workflow_dispatch:
 
 jobs:
-
-  basic-ubuntu-20:
+  e2e-tests-ubuntu-20:
     runs-on: ubuntu-20.04
     steps:
       - name: Checkout
@@ -22,15 +21,14 @@ jobs:
 
       - name: Install dependencies
         run: npm ci
-        working-directory: examples/basic
+        working-directory: e2e
 
-      - name: Cypress tests
+      - name: Run Cypress tests
         uses: cypress-io/github-action@v6
         with:
-          working-directory: examples/basic
-          build: npx cypress info
+          working-directory: e2e
 
-  basic-ubuntu-22:
+  e2e-tests-ubuntu-22:
     runs-on: ubuntu-22.04
     steps:
       - name: Checkout
@@ -43,15 +41,14 @@ jobs:
 
       - name: Install dependencies
         run: npm ci
-        working-directory: examples/basic
+        working-directory: e2e
 
-      - name: Cypress tests
+      - name: Run Cypress tests
         uses: cypress-io/github-action@v6
         with:
-          working-directory: examples/basic
-          build: npx cypress info
+          working-directory: e2e
 
-  basic-on-windows:
+  e2e-tests-windows:
     runs-on: windows-latest
     steps:
       - name: Checkout
@@ -64,15 +61,14 @@ jobs:
 
       - name: Install dependencies
         run: npm ci
-        working-directory: examples/basic
+        working-directory: e2e
 
-      - name: Cypress tests
+      - name: Run Cypress tests
         uses: cypress-io/github-action@v6
         with:
-          working-directory: examples/basic
-          build: npx cypress info
+          working-directory: e2e
 
-  basic-on-mac:
+  e2e-tests-macos:
     runs-on: macos-latest
     steps:
       - name: Checkout
@@ -85,37 +81,9 @@ jobs:
 
       - name: Install dependencies
         run: npm ci
-        working-directory: examples/basic
+        working-directory: e2e
 
-      - name: Cypress tests
+      - name: Run Cypress tests
         uses: cypress-io/github-action@v6
         with:
-          working-directory: examples/basic
-          build: npx cypress info
-
-  # skips the binary installation
-  # shows that the job should not fail
-  # https://github.com/cypress-io/github-action/issues/327
-  basic-without-binary-install:
-    runs-on: ubuntu-22.04
-    steps:
-      - name: Checkout
-        uses: actions/checkout@v4
-
-      - name: Set up Node.js
-        uses: actions/setup-node@v3
-        with:
-          node-version: '14'
-
-      - name: Install dependencies
-        run: npm ci
-        working-directory: examples/basic
-
-      - name: Cypress tests
-        uses: cypress-io/github-action@v6
-        with:
-          working-directory: examples/basic
-          runTests: false
-        env:
-          # skip the binary install
-          CYPRESS_INSTALL_BINARY: 0
+          working-directory: e2e
