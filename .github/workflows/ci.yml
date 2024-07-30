@@ -15,6 +15,15 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v4
 
+      - name: Set up Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: '14'
+
+      - name: Install dependencies
+        run: npm ci
+        working-directory: examples/basic
+
       - name: Cypress tests
         uses: cypress-io/github-action@v6
         with:
@@ -26,6 +35,15 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v4
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: '14'
+
+      - name: Install dependencies
+        run: npm ci
+        working-directory: examples/basic
 
       - name: Cypress tests
         uses: cypress-io/github-action@v6
@@ -39,6 +57,15 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v4
 
+      - name: Set up Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: '14'
+
+      - name: Install dependencies
+        run: npm ci
+        working-directory: examples/basic
+
       - name: Cypress tests
         uses: cypress-io/github-action@v6
         with:
@@ -50,6 +77,15 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v4
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: '14'
+
+      - name: Install dependencies
+        run: npm ci
+        working-directory: examples/basic
 
       - name: Cypress tests
         uses: cypress-io/github-action@v6
@@ -65,6 +101,15 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v4
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: '14'
+
+      - name: Install dependencies
+        run: npm ci
+        working-directory: examples/basic
 
       - name: Cypress tests
         uses: cypress-io/github-action@v6
