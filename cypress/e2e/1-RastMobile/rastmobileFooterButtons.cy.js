@@ -30,7 +30,7 @@ describe('rastmobile alt menu butonları ve dogrulama', () => {
     });
 
     it('Case 4 - Angular footer', () => {
-        cy.get(':nth-child(2) > .nav > :nth-child(4) > .footer-link-text')
+        cy.get('.row > :nth-child(2) > .nav > :nth-child(4) > .footer-link-text')
         .click()
         cy.url().should("contain","angular")
     });
@@ -55,7 +55,7 @@ describe('rastmobile alt menu butonları ve dogrulama', () => {
     });
 
     it('Case 8 - Nodejs footer', () => {
-        cy.get(':nth-child(2) > .nav > :nth-child(8) > .footer-link-text')
+        cy.get('.row > :nth-child(2) > .nav > :nth-child(8) > .footer-link-text')
         .click()
         cy.url().should("contain","nodejs")
         
