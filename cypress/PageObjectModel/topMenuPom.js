@@ -118,7 +118,7 @@ export class TopMenu {
         }
 
         citizenBtn(){
-            cy.get('[href="/en/products/e-ciziten-mobile-app"] > .row > .col-xl-8').click()
+            cy.get('[href="/en/products/e-citizen-mobile-app"] > .row > .col-xl-8').click()
         }
 
         pyramidsBtn(){
