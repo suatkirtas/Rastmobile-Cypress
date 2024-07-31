@@ -5,7 +5,7 @@ const homepageTopBtn = new TopMenu
 
 describe('rastmobile mainpage butonlari ve dogrulamalari', () => {
 
-    test = [{title : "geliştirme"},{title : 2}]
+
 
     beforeEach(() => {
         cy.log("beforeEach ile visit atıldı, çözünürlük ayarlandı")
