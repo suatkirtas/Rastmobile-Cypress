@@ -191,10 +191,10 @@ describe('rastmobile mainpage butonlari ve dogrulamalari', () => {
         cy.url().should("include","courier")
     });
 
-    it('Case 5.6 - products menusu e citizien butonu ve dogrulama', () => {
+    it('Case 5.6 - products menusu e citizen butonu ve dogrulama', () => {
         homepageTopBtn.topMenu()
         homepageTopBtn.citizenBtn()
-        cy.url().should("include","citizen")
+        cy.url().should("include","citizen") 
     });
 
     it('Case 5.7 - products menusu word pyramids butonu ve dogrulama', () => {
