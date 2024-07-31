@@ -5,6 +5,7 @@ const homepageTopBtn = new TopMenu
 
 describe('rastmobile mainpage butonlari ve dogrulamalari', () => {
 
+    test = [{title : "geliştirme"},{title : 2}]
 
     beforeEach(() => {
         cy.log("beforeEach ile visit atıldı, çözünürlük ayarlandı")
@@ -13,7 +14,7 @@ describe('rastmobile mainpage butonlari ve dogrulamalari', () => {
         cy.location("hostname").should("include","rastmobile.com")
         cy.location("protocol").should("eq","https:")
     });
-
+    //not
 
     it('Case 1 - dil degistirme ve dogrulama', () => {
         cy.url().should("include","en")
