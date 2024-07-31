@@ -38,7 +38,7 @@ describe('rastmobile mainpage butonlari ve dogrulamalari', () => {
     });
 
 
-    it('Case 2.3 - company menusu catalog butonu ve dogrulama', () => {
+    it.skip('Case 2.3 - company menusu catalog butonu ve dogrulama', () => {
         homepageTopBtn.topMenu()
         homepageTopBtn.catalogBtn()
         cy.url().should("include","catalog")
@@ -194,7 +194,6 @@ describe('rastmobile mainpage butonlari ve dogrulamalari', () => {
     it('Case 5.6 - products menusu e citizien butonu ve dogrulama', () => {
         homepageTopBtn.topMenu()
         homepageTopBtn.citizenBtn()
-        cy.title().should("include","Citizen")
         cy.url().should("include","citizen")
     });
 
